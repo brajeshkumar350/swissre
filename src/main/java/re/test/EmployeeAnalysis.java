@@ -7,8 +7,8 @@ import java.util.*;
 
 
 public class EmployeeAnalysis {
-    private static Map<Integer, Employee> employees = new HashMap<>();
-    private static Map<Integer, List<Employee>> managerToSubordinates = new HashMap<>();
+    public static Map<Integer, Employee> employees = new HashMap<>();
+    public static Map<Integer, List<Employee>> managerToSubordinates = new HashMap<>();
     
     public static void main(String[] args) {
         String fileName = "C:\\swissre\\src\\main\\resources\\employees.csv";
@@ -17,7 +17,7 @@ public class EmployeeAnalysis {
         analyzeReportingLines();
     }
 
-    private static void readEmployeeData(String fileName) {
+    public static void readEmployeeData(String fileName) {
         try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
             String line;
             br.readLine(); // Skip header
@@ -41,7 +41,7 @@ public class EmployeeAnalysis {
         }
     }
 
-    private static void analyzeSalaries() {
+    public static void analyzeSalaries() {
         for (Map.Entry<Integer, List<Employee>> entry : managerToSubordinates.entrySet()) {
             Employee manager = employees.get(entry.getKey());
             List<Employee> subordinates = entry.getValue();
@@ -58,7 +58,7 @@ public class EmployeeAnalysis {
         }
     }
 
-    private static void analyzeReportingLines() {
+    public static void analyzeReportingLines() {
         for (Employee employee : employees.values()) {
             int depth = getReportingDepth(employee.id);
             if (depth > 4) {
@@ -67,7 +67,7 @@ public class EmployeeAnalysis {
         }
     }
 
-    private static int getReportingDepth(int employeeId) {
+    public static int getReportingDepth(int employeeId) {
         int depth = 0;
         Employee employee = employees.get(employeeId);
         while (employee.managerId != null) {

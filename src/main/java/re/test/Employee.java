@@ -1,10 +1,10 @@
 package re.test;
 
-class Employee {
-    int id;
+public class Employee {
+    public int id;
     String firstName;
     String lastName;
-    int salary;
+    public int salary;
     Integer managerId;
     
     public Employee(int id, String firstName, String lastName, int salary, Integer managerId) {
