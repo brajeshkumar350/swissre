@@ -11,7 +11,7 @@ public class EmployeeAnalysis {
     private static Map<Integer, List<Employee>> managerToSubordinates = new HashMap<>();
     
     public static void main(String[] args) {
-        String fileName = "D:\\swissre\\src\\main\\resources\\employees.csv";
+        String fileName = "C:\\swissre\\src\\main\\resources\\employees.csv";
         readEmployeeData(fileName);
         analyzeSalaries();
         analyzeReportingLines();
